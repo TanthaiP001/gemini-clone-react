@@ -8,7 +8,13 @@ const Sidebar = () => {
   // eslint-disable-next-line no-unused-vars
   const [extended, setExtended] = useState(false);
   // eslint-disable-next-line no-unused-vars
-  const { onSent, prevPrompt, setRecentPromp } = useContext(Context);
+  const { onSent, prevPrompt, setRecentPrompt, newChat } = useContext(Context);
+
+  const loadPrompt = async (prompt) => {
+    setRecentPrompt(prompt)
+    await onSent(prompt)
+  }  
+
 
   return (
     <div className="sidebar">
@@ -18,7 +24,7 @@ const Sidebar = () => {
           className="menu"
           onClick={() => setExtended(!extended)}
         />
-        <div className="new-chat">
+        <div className="new-chat" onClick={()=>newChat()}>
           <img src={assets.plus_icon} />
           {extended ? <p>New Chat</p> : null}
         </div>
@@ -27,9 +33,9 @@ const Sidebar = () => {
             <p className="recent-title">Recent</p>
             {prevPrompt.map((item, index) => {
               return (
-                <div className="recent-entry" key={index}>
+                <div className="recent-entry" key={index} onClick={()=>loadPrompt(item)}>
                   <img src={assets.message_icon} />
-                  <p>{item}...</p>
+                  <p>{item.slice(0,18)}...</p>
                 </div>
               );
             })}

@@ -19,7 +19,7 @@ const Main = () => {
   return (
     <div className="main">
       <div className="nav">
-        <p>Gemini</p>
+        <p>Google Gemini</p>
         <img src={assets.user_icon} alt="" />
       </div>
       <div className="main-container">
@@ -27,24 +27,23 @@ const Main = () => {
           <>
             <div className="greet">
               <p>
-                <span>Hellom, Dev</span>
+                <span>Hello, Developer How can i help you today?</span>
               </p>
-              <p>How can i help you today?</p>
             </div>
             <div className="cards">
-              <div className="card">
+              <div className="card" onClick={() => onSent("Tell me about the weather")}>
                 <p>Tell me about the weather</p>
                 <img src={assets.compass_icon} alt="" />
               </div>
-              <div className="card">
+              <div className="card" onClick={() => onSent("Tell me about react and vite")}>
                 <p>Tell me about react and vite</p>
                 <img src={assets.bulb_icon} alt="" />
               </div>
-              <div className="card">
+              <div className="card" onClick={() => onSent("What is the meaning of life")}>
                 <p>What is the meaning of life</p>
                 <img src={assets.message_icon} alt="" />
               </div>
-              <div className="card">
+              <div className="card" onClick={() => onSent("where should i go when i have a day off")}>
                 <p>where should i go when i have a day off</p>
                 <img src={assets.code_icon} alt="" />
               </div>
@@ -81,7 +80,7 @@ const Main = () => {
             <div>
               <img src={assets.gallery_icon} alt="" />
               <img src={assets.mic_icon} alt="" />
-              <img src={assets.send_icon} alt="" onClick={() => onSent()} />
+              {input?<img src={assets.send_icon} alt="" onClick={() => onSent()} />:null}
             </div>
           </div>
           <p className="bottom-info">

@@ -20,15 +20,16 @@
     align-items: center;
     gap: 10px;
     padding: 10px 15px;
-    background-color: #e6eaf1;
+    background: -webkit-linear-gradient(16deg, #e1e1e1,#cccccc);
     border-radius: 50px;
     font-size: 14px;
-    color: gray;
+    color: rgb(67, 67, 67);
     cursor: pointer;
 }
 .sidebar .recent {
     display: flex;
     flex-direction: column;
+    animation: fadeIn 1.5s;
 }
 .sidebar .recent-title {
     margin-top: 30px;
@@ -54,4 +55,9 @@
 .sidebar .bottom-item {
     padding-right: 10px;
     cursor: pointer;
+}
+@media (max-width: 600px) {
+    .sidebar {
+        display: none;
+    }
 }
